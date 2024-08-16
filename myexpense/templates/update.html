@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="padding: 20px;">
+    <h2>Update Expense</h2>
+    <form style="max-width: 400px; margin: auto; background-color: #f4f4f4; padding: 20px; border-radius: 10px;" method="post">
+        {% csrf_token %}
+        <!-- Date Selector -->
+        <label for="date" style="font-size: 18px;">Month:</label>
+        <input type="month" id="date" name="date" style="width: 90%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+
+        <!-- Spending Category Selector -->
+        <label for="category" style="font-size: 18px;">Category:</label>
+        <select id="category" name="category" style="width: 95%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+            <option value="accommodation">Accommodation</option>
+            <option value="food">Grocery</option>
+            <option value="gas">Gas</option>
+            <option value="dine-out">Dine-out</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="shopping">Shopping</option>
+            <option value="others">Others</option>
+
+              
+        </select>
+
+        <!-- Amount Spent Input -->
+        <label for="amount" style="font-size: 18px;">Amount Spent:</label>
+        <input type="number" id="amount"  value={{old_ele.amount}} name="amount" placeholder="Enter amount" style="width: 90%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+
+        <!-- Submit Button -->
+        <button type="submit" style="width: 100%; padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer;">
+            Update Expense
+        </button>
+    </form>
+</div>
+
+
+
+{% endblock %}
+

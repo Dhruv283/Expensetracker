@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<div style="padding: 20px;">
+    
+    <!-- {{expense_list}} -->
+    <div>
+        <h2>View Expenses</h2>
+        <form style="text-align: right;">
+            <label for="category" style="font-size: 18px;">See Category</label>
+            <select id="category" name="search" style="width: 20%; padding: 10px; margin-top: 5px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; margin-left: 10px;">
+                <option value="accommodation">Accommodation</option>
+                <option value="food">Grocery</option>
+                <option value="gas">Gas</option>
+                <option value="dine-out">Dine-out</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="shopping">Shopping</option>
+                <option value="others">Others</option>
+            </select>
+            <button type="submit" style="width: 5%; padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; text-align: right;">
+                Search
+            </button>
+        </form>
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; background-color: #f4f4f4; border-radius: 10px; overflow: hidden;">
+        <thead>
+            <tr style="background-color: #333; color: white;">
+                <th style="padding: 12px; text-align: left; font-size: 18px; border-bottom: 2px solid #ddd;">Date</th>
+                <th style="padding: 12px; text-align: left; font-size: 18px; border-bottom: 2px solid #ddd;">Expense Type</th>
+                <th style="padding: 12px; text-align: left; font-size: 18px; border-bottom: 2px solid #ddd;">Amount</th>
+                <th style="padding: 12px; text-align: left; font-size: 18px; border-bottom: 2px solid #ddd; text-align: center;">Remove/Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in expense_list %}
+                <tr>
+                    <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{i.date}}</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{i.category}}</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{i.amount}}</td>
+                    <td style="padding: 12px; border-bottom: 1px solid #ddd; text-align: center;">
+                        <a href="http://127.0.0.1:8000/deleteexpense/{{i.id}}" type="submit" style="width: 30%; padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; margin: auto;">
+                            Remove
+                        </a>
+                        <a href="http://127.0.0.1:8000/updateexpense/{{i.id}}" type="submit" style="width: 30%; padding: 10px; background-color: #333; color: white; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; margin: auto; margin-left: 10px;">
+                            Update
+                        </a>
+                    </td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

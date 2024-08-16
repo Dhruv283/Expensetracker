@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+</head>
+<body style="margin: 0; font-family: Arial, sans-serif;">
+
+    <!-- Navigation Bar -->
+    <div style="background-color: #333; overflow: hidden; padding: 10px 0;">
+        <!-- Brand Name -->
+        <a href="#" style="float: left; color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 22px;">
+            Expense Tracker
+        </a>
+        <!-- Navigation Links -->
+        <div style="float: right;">
+            <a href="http://127.0.0.1:8000/" style="color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; display: inline-block;">
+                Add Expense
+            </a>
+            <a href="http://127.0.0.1:8000/viewexpense" style="color: white; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 18px; display: inline-block;">
+                View Expense
+            </a>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
